@@ -9,16 +9,13 @@ float fahrToCel(float fahr) {
 }
 
 float celToKel(float cel) {
-  return 1.1;
-}
-
-float kelToCel(float kel) {
-  return 1.2;
+  return cel + 273.15;
 }
 
 void fahrenheitCentigradeConversion(void) {
   float Temp;
   float Result = 0;
+  float resultKelvin = 0;
   char Conv;
   std::string Text = "";
 
@@ -41,15 +38,19 @@ void fahrenheitCentigradeConversion(void) {
     case 'C':
 	  case 'c':
         Result = fahrToCel(Temp);
+        resultKelvin = celToKel(Result);
         printf("Your Choice: %c \n",Conv);
-        printf("%g fahrenheit is %g degrees", Temp, Result);
+        printf("%g fahrenheit is %g degrees  which is the same as %g Kelvin \n", Temp, Result,resultKelvin);
         break;
     case 'F':
 	  case 'f':
         Result = celToFahr(Temp);
+        resultKelvin = celToKel(Temp);
         printf("Your Choice: %c \n",Conv);
-        printf("%g degrees is %g fahrenheit \n", Temp, Result);
+        printf("%g degrees is %g fahrenheit which is the same as %g Kelvin\n", Temp, Result,resultKelvin);
         break;
+    
+    
     default:
       printf("Temperature is Not A Char Please Enter C or F\n");
       break;
