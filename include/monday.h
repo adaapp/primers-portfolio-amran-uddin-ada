@@ -74,10 +74,10 @@ void selfServiceCheckout(void) {
     std::cin >> item;
     total += quantity * item;
   }
-  
-  std::cout << "\n Subtotal: " << total;
-    std::cout << "\n Tax: " << total * (tax / 100);
-  std::cout << "\n Total: " << total * ((tax/100) + 1);
+
+  printf("\n Subtotal %.2f", total);
+  printf("\n Tax %.2f \n", total * (tax / 100));
+  printf("\n Total %.2f\n", total * ((tax/100) + 1));
 }
 
 /*
