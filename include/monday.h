@@ -1,19 +1,19 @@
 #include <iostream> 
 using namespace std;
 
-float celtoFahr(float cel) {
+float celToFahr(float cel) {
   return (cel * 9/ 5) + 32;
 }
-float fahrtoCel(float fahr) {
+float fahrToCel(float fahr) {
   return (fahr - 32) * 5 / 9;
 }
 
-float celtoKel(float fahr) {
-
+float celToKel(float cel) {
+  return 1.1;
 }
 
-float kelToCel(float fahs) {
-
+float kelToCel(float kel) {
+  return 1.2;
 }
 
 void fahrenheitCentigradeConversion(void) {
@@ -40,13 +40,13 @@ void fahrenheitCentigradeConversion(void) {
  	switch(Conv) {
     case 'C':
 	  case 'c':
-        Result = FahrtoCel(Temp);
+        Result = fahrToCel(Temp);
         printf("Your Choice: %c \n",Conv);
         printf("%g fahrenheit is %g degrees", Temp, Result);
         break;
     case 'F':
 	  case 'f':
-        Result = celtoFahr(Temp);
+        Result = celToFahr(Temp);
         printf("Your Choice: %c \n",Conv);
         printf("%g degrees is %g fahrenheit \n", Temp, Result);
         break;
