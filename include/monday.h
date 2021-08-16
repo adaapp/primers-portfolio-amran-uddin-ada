@@ -21,21 +21,22 @@ void fahrenheitCentigradeConversion(void) {
   std::cout << "Press C to convert Fahrenheit to Celsius" << std::endl;
   std::cout << "Press F to convert Celsius to Fahrenheit" << std::endl;
   std::cin >> Conv;
-
-  if (Conv == 'C'){
-  Result = FahrtoCel(Temp);
-  printf("Your Choice: %c \n",Conv);
-  printf("%g fahrenheit is %g degrees", Temp, Result);
-
-  }
-  else if (Conv == 'F'){
-    Result = celtoFahr(Temp);
-    printf("Your Choice: %c \n",Conv);
-    printf("%g degrees is %g fahrenheit \n", Temp, Result);
-
-  }
-  else {
-    printf("Temperature is Not A Char Please Enter C or F\n");
+ 	switch(Conv) {
+    case 'C':
+	  case 'c':
+        Result = FahrtoCel(Temp);
+        printf("Your Choice: %c \n",Conv);
+        printf("%g fahrenheit is %g degrees", Temp, Result);
+        break;
+    case 'F':
+	  case 'f':
+        Result = celtoFahr(Temp);
+        printf("Your Choice: %c \n",Conv);
+        printf("%g degrees is %g fahrenheit \n", Temp, Result);
+        break;
+    default:
+      printf("Temperature is Not A Char Please Enter C or F\n");
+      break;
   }
   
 }
