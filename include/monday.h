@@ -4,8 +4,16 @@ using namespace std;
 float celtoFahr(float cel) {
   return (cel * 9/ 5) + 32;
 }
-float FahrtoCel(float fahr) {
+float fahrtoCel(float fahr) {
   return (fahr - 32) * 5 / 9;
+}
+
+float celtoKel(float fahr) {
+
+}
+
+float kelToCel(float fahs) {
+
 }
 
 void fahrenheitCentigradeConversion(void) {
@@ -18,9 +26,17 @@ void fahrenheitCentigradeConversion(void) {
   std::cout << "Please enter the starting temperature: ";
   std::cin >> Temp;
 
+  while (cin.fail()) {
+    std::cin.clear();
+    cin.ignore();
+    std::cout << "Not a number please enter a number: ";
+    std::cin >> Temp;
+  }
+
   std::cout << "Press C to convert Fahrenheit to Celsius" << std::endl;
   std::cout << "Press F to convert Celsius to Fahrenheit" << std::endl;
   std::cin >> Conv;
+
  	switch(Conv) {
     case 'C':
 	  case 'c':
