@@ -23,9 +23,9 @@ void fahrenheitCentigradeConversion(void) {
   std::cout << "Please enter the starting temperature: ";
   std::cin >> temp;
 
-  while (cin.fail()) {
-    std::cin.clear();
-    cin.ignore();
+  while (cin.fail()) { // occurs when cin fails maybe due to incorrect type
+    std::cin.clear(); // clear fail flag
+    cin.ignore(numeric_limits<streamsize>::max(),'\n'); // escape to new line we do not gett error from non-number 
     std::cout << "Not a number please enter a number: ";
     std::cin >> temp;
   }
