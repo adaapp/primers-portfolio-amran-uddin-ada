@@ -66,10 +66,16 @@ void printEmployees(string employees[],int sizeArray){
 }
 
 void employeeListRemoval(void) {
-	std::cout << " - employeeListRemoval: implemented\n\n";
-  string deleteChoice = "Cale Myers";
+  string deleteChoice = "";
   string employees[5] = {"John Smith","Jaelynn Smith","Kaley Barajas","Walter Collier","Cale Myers"};
   int sizeArray = sizeof(employees)/sizeof(employees[0]);
+
+  std::cout << "\nList of Employees";
+  printEmployees(employees,sizeArray);
+  std::cout << "\nDelete Choice: ";
+  getline(cin,deleteChoice);
+
+  
 
   for (int i = 0; i < sizeArray + 1; i++){
     if (employees[i] == deleteChoice) {
@@ -88,5 +94,5 @@ void employeeListRemoval(void) {
 /*
 TODO:
 Make print emplyees return array with deleted choice so is pure
-add cin
+is case sensitive
 */
