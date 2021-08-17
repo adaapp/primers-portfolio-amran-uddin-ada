@@ -13,41 +13,41 @@ float celToKel(float cel) {
 }
 
 void fahrenheitCentigradeConversion(void) {
-  float Temp;
-  float Result = 0;
+  float temp;
+  float result = 0;
   float resultKelvin = 0;
-  char Conv;
+  char conv;
   std::string Text = "";
 
   
   std::cout << "Please enter the starting temperature: ";
-  std::cin >> Temp;
+  std::cin >> temp;
 
   while (cin.fail()) {
     std::cin.clear();
     cin.ignore();
     std::cout << "Not a number please enter a number: ";
-    std::cin >> Temp;
+    std::cin >> temp;
   }
 
   std::cout << "Press C to convert Fahrenheit to Celsius" << std::endl;
   std::cout << "Press F to convert Celsius to Fahrenheit" << std::endl;
-  std::cin >> Conv;
+  std::cin >> conv;
 
- 	switch(Conv) {
+ 	switch(conv) {
     case 'C':
 	  case 'c':
-        Result = fahrToCel(Temp);
-        resultKelvin = celToKel(Result);
-        printf("Your Choice: %c \n",Conv);
-        printf("%g fahrenheit is %g degrees  which is the same as %g Kelvin \n", Temp, Result,resultKelvin);
+        result = fahrToCel(temp);
+        resultKelvin = celToKel(result);
+        printf("Your Choice: %c \n",conv);
+        printf("%g fahrenheit is %g degrees  which is the same as %g Kelvin \n", temp, result,resultKelvin);
         break;
     case 'F':
 	  case 'f':
-        Result = celToFahr(Temp);
-        resultKelvin = celToKel(Temp);
-        printf("Your Choice: %c \n",Conv);
-        printf("%g degrees is %g fahrenheit which is the same as %g Kelvin\n", Temp, Result,resultKelvin);
+        result = celToFahr(temp);
+        resultKelvin = celToKel(temp);
+        printf("Your Choice: %c \n",conv);
+        printf("%g degrees is %g fahrenheit which is the same as %g Kelvin\n", temp, result,resultKelvin);
         break;
     
     
@@ -84,8 +84,6 @@ void selfServiceCheckout(void) {
 }
 
 /*
-ToDO
-Add 2dp
 3 0.99
 2 1.5
 1 2.99
