@@ -67,12 +67,15 @@ void selfServiceCheckout(void) {
   int quantity = 1;
   float item;
   float total = 0;
+  int i = 1;
   while (quantity > 0){
-    std::cout << "\n Please enter a quantity for item 1 (or 0 to finish): ";
+
+    printf("\n Please enter a quantity for item %d (or 0 to finish): ", i);
     std::cin >> quantity;
-    std::cout << "\n Please enter item 1’s cost: ";
+    printf("\n Please enter item %d’s cost: ", i);
     std::cin >> item;
     total += quantity * item;
+    i++;
   }
 
   printf("\n Subtotal %.2f", total);
