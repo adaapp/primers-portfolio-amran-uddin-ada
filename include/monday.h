@@ -69,9 +69,11 @@ void selfServiceCheckout(void) {
   float total = 0;
   int i = 1;
   while (quantity > 0){
-
     printf("\n Please enter a quantity for item %d (or 0 to finish): ", i);
     std::cin >> quantity;
+    if (quantity <= 0) {
+      break;
+    }
     printf("\n Please enter item %d’s cost: ", i);
     std::cin >> item;
     total += quantity * item;
