@@ -6,7 +6,7 @@ int complexityChecker(string inputPassword) {
   int special = 0;
   int passSize = inputPassword.size(); // £ extended ascii character counts as two characters
 
-  for (std::string::size_type i = 0; i < passSize; ++i){
+  for (std::string::size_type i = 0; i < passSize; i++){
 
     if(isalpha(inputPassword[i])){ alpha++; }
     else if(isdigit(inputPassword[i])) { numeric++; }
@@ -58,7 +58,35 @@ void passwordComplexityChecker(void) {
   }
 }
 
+void printEmployees(string employees[],int sizeArray){
+  for (int i = 0; i < sizeArray; i++){
+    if (employees[i] == "") { return; }
+    cout << "\n" << employees[i];
+  }
+}
 
 void employeeListRemoval(void) {
-	std::cout << " - employeeListRemoval: not yet implemented\n\n";
+	std::cout << " - employeeListRemoval: implemented\n\n";
+  string deleteChoice = "Cale Myers";
+  string employees[5] = {"John Smith","Jaelynn Smith","Kaley Barajas","Walter Collier","Cale Myers"};
+  int sizeArray = sizeof(employees)/sizeof(employees[0]);
+
+  for (int i = 0; i < sizeArray + 1; i++){
+    if (employees[i] == deleteChoice) {
+      for (int j = i+1; j < sizeArray; j++){ // shift everything left overwrite chosen delete
+        employees[j-1] = employees[j];
+      }
+
+      employees[sizeArray -1] = ""; // last two values would be duplicated - make empty
+      cout << "\n" << "--Result--";
+      printEmployees(employees,sizeArray);
+      return;
+    }
+  }
 }
+
+/*
+TODO:
+Make print emplyees return array with deleted choice so is pure
+add cin
+*/
