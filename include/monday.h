@@ -25,7 +25,7 @@ void fahrenheitCentigradeConversion(void) {
 
   while (cin.fail()) { // occurs when cin fails maybe due to incorrect type
     std::cin.clear(); // clear fail flag
-    cin.ignore(numeric_limits<streamsize>::max(),'\n'); // escape to new line we do not gett error from non-number 
+    cin.ignore(numeric_limits<streamsize>::max(),'\n'); // escape to new line we do not get error from non-number 
     std::cout << "Not a number please enter a number: ";
     std::cin >> temp;
   }
@@ -34,7 +34,7 @@ void fahrenheitCentigradeConversion(void) {
   std::cout << "Press F to convert Celsius to Fahrenheit" << std::endl;
   std::cin >> conv;
 
- 	switch(conv) {
+  switch (conv) {
     case 'C':
 	  case 'c':
         result = fahrToCel(temp);
@@ -63,7 +63,7 @@ void fahrenheitCentigradeConversion(void) {
 
 
 void selfServiceCheckout(void) {
-	const float tax = 5.5;
+  const float tax = 5.5;
   int quantity = 1;
   float item;
   float total = 0;
