@@ -89,6 +89,10 @@ void employeeListRemoval(void) {
       return;
     }
   }
+  cout << "\n" << "No one in the list named " << deleteChoice;
+  printEmployees(employees,sizeArray);
+  return;
+  
 }
 
 /*
