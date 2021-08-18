@@ -13,16 +13,16 @@ void phoneDirectory(void) {
 
   std::string *parsedObj = new string[3];
 
-  if(isNumber(searchInput)){
-    bool phoneNumber = true;
-    parsedObj = searchRecords("phonedirectory.csv",phoneNumber, searchInput);
-    printf("\nSearching %s records \n\nFound %s, Tel: %s \n", parsedObj[2].c_str(),parsedObj[0].c_str(),parsedObj[1].c_str());
+  parsedObj = searchRecords("phonedirectory.csv",isNumber(searchInput), searchInput);
+  if (parsedObj[0] == "0"){
+    printf("\nSearching %s records \n", parsedObj[2].c_str());
+    printf("\nFound No Matches for %s\n",searchInput.c_str());
   }
   else {
-    bool phoneNumber = false;
-    parsedObj = searchRecords("phonedirectory.csv",phoneNumber, searchInput);
-    printf("\nSearching %s records \n\nFound %s, Tel: %s \n", parsedObj[2].c_str(),parsedObj[0].c_str(),parsedObj[1].c_str());
+    printf("\nSearching %s records \n", parsedObj[2].c_str());
+    printf("\nFound %s, Tel: %s \n",parsedObj[0].c_str(),parsedObj[1].c_str());
   }
+  
 }
 
 
