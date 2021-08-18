@@ -13,7 +13,7 @@ void phoneDirectory(void) {
 
   std::string *parsedObj = new string[3];
 
-  parsedObj = searchRecords("phonedirectory.csv",isNumber(searchInput), searchInput);
+  parsedObj = searchRecords("include/phonedirectory.csv",isNumber(searchInput), searchInput);
   if (parsedObj[0] == "0"){
     printf("\nSearching %s records \n", parsedObj[2].c_str());
     printf("\nFound No Matches for %s\n",searchInput.c_str());
@@ -47,7 +47,7 @@ string* searchRecords(string file,bool phoneNumber, string search){
   std::string *returnObj = new string[3];
   std::ifstream fileObj;
   
-  fileObj.open("include/phonedirectory.txt");
+  fileObj.open(file);
   if(!fileObj.is_open()) throw std::runtime_error("Could not open file");
   while (!fileObj.eof()){
     getline(fileObj, line);
