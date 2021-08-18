@@ -77,7 +77,7 @@ int complexityChecker(string inputPassword) {
 
 int complexityReturner(int passSize, int alpha, int numeric, int special) {
 
-    if (passSize >= 8 && numeric >=2 && alpha >= 4){
+  if (passSize >= 8 && numeric >=2 && alpha >= 4){
     if (special >=1 ) {
       return 4;
     } // difference between very strong and strong is the special char
