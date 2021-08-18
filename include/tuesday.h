@@ -2,6 +2,7 @@
 using namespace std;
 
 int complexityChecker(string inputPassword);
+int complexityReturner(int PassSize, int alpha, int numeric, int special);
 void printEmployees(string employees[],int sizeArray);
 
 void passwordComplexityChecker(void) {
@@ -61,7 +62,7 @@ int complexityChecker(string inputPassword) {
   int alpha = 0;
   int numeric = 0;
   int special = 0;
-  int passSize = inputPassword.size(); // £ extended ascii character counts as two characters
+  int passSize = inputPassword.length(); // some utf chars count as two
 
   for (std::string::size_type i = 0; i < passSize; i++){
 
@@ -71,7 +72,12 @@ int complexityChecker(string inputPassword) {
 
   }
 
-  if (passSize >= 8 && numeric >=2 && alpha >= 4){
+  return complexityReturner(passSize, alpha, numeric, special);
+}
+
+int complexityReturner(int passSize, int alpha, int numeric, int special) {
+
+    if (passSize >= 8 && numeric >=2 && alpha >= 4){
     if (special >=1 ) {
       return 4;
     } // difference between very strong and strong is the special char
@@ -104,4 +110,8 @@ TODO:
 Make print emplyees return array with deleted choice so is pure
 is case sensitive
 printf??
+size() counts £ as 2 char(bytes) length() 1 char
+  - function cchecker calls creturner decided to split into two functions
+  do two diff things once counts types of chars
+  second uses data of types of chars to make judgement
 */
