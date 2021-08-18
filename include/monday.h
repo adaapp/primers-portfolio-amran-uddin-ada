@@ -89,4 +89,21 @@ void selfServiceCheckout(void) {
 3 0.99
 2 1.5
 1 2.99
+
+replace cout with printf ???
+
+Notes:
+Temperature converter -
+  - printf is superior to cout for formatting output
+  - pure conversion functios up top
+  - switch case with chars
+  - if cin fails for temp num loops on condition of fail flag
+  clears fail flag and tells compiler to ignore current line and error and go to new line
+
+Self Service Checker -
+  - += incrementer makes things look nicer
+  - i++ counter for current item
+  - stop loop and next output statement when qty = 0 (<=0)
+  - tax calculation tx = st * 0.055 and T = st * 1.055 
+
 */
