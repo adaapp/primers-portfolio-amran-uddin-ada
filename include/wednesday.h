@@ -28,24 +28,39 @@ void phoneDirectory(void) {
 
 void dataFileParser(void) {
   std::vector<std::string> parsedObj;
+  std::vector<std::vector<std::string>> parsed2dObj;
   std::ifstream fileObj;
   std::string line;
   std::string initial;
+  int maxLast = 4;
+  int maxSalary = 5;
 
-  printf("\n|%-7s|%-10s|%-7s|\n", "-------","----------","-------");
-	printf("|%-7s|%-10s|%-7s|\n", "Initial","Last","Salary");
-  printf("|%-7s|%-10s|%-7s|\n", "-------","----------","-------");
 
   fileObj.open("include/employeesalary.csv");
   if(!fileObj.is_open()) throw std::runtime_error("Could not open file");
   while (!fileObj.eof()){
     getline(fileObj, line);
     parsedObj = parseFile(line);
-    initial = parsedObj[0].substr(0, 1) + ".";
-    printf("|%-7s|%-10s|£%-6s|\n", initial.c_str(),parsedObj[1].c_str(),parsedObj[2].c_str());
+    parsed2dObj.push_back(parsedObj);
+    if (parsedObj[1].length() > maxLast){
+      maxLast = parsedObj[1].length();
+    }
+    if (parsedObj[2].length() > maxSalary){
+      maxSalary = parsedObj[2].length();
+    }
   }
   fileObj.close();
-  printf("|%-7s|%-10s|%-7s|\n", "-------","----------","-------");
+  maxSalary++;
+  maxLast++;
+	printf("|%-7s|%-*s|%-*s |\n", "Initial", maxLast,"Last", maxSalary,"Salary");
+  printf("|%-7s|%-*s|-%-*s|\n", "-------", maxLast,"-----", maxSalary,"----");
+  for(std::vector<std::vector<std::string>>::size_type i = 0; i != parsed2dObj.size(); i++) {
+    /* std::cout << v[i]; ... */
+    initial = parsed2dObj[i][0].substr(0, 1) + ".";
+    printf("|%-7s|%-*s|£%-*s|\n", initial.c_str(), maxLast,parsed2dObj[i][1].c_str(), maxSalary,parsed2dObj[i][2].c_str());
+  }
+  //printf("|%-7s|%-10s|£%-6s|\n", initial.c_str(),parsedObj[1].c_str(),parsedObj[2].c_str());
+
 }
 
 //------------|------------|------------|------------|------------|-------
