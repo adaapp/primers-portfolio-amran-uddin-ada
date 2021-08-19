@@ -28,7 +28,6 @@ void phoneDirectory(void) {
   
 }
 
-
 void dataFileParser(void) {
   std::vector<std::string> parsedObj;
   std::vector<std::vector<std::string>> parsed2dObj;
@@ -51,9 +50,7 @@ void dataFileParser(void) {
   }
   printf("|%-7s|%-*s|%-*s|\n", "-------", maxLast,lastDash.c_str(), maxSalary,salaryDash.c_str());
 }
-
 //------------|------------|------------|------------|------------|
-
 bool isNumber(string searchInput){
   for (std::string::size_type i = 0; i < searchInput.length(); i++){
     if (!isdigit(searchInput[i])) { return false; }
@@ -110,7 +107,6 @@ std::vector<string> parseFile (string line) {
   parsedObj.push_back(line.substr(start, line.length()));
   return parsedObj;
 }
-
 //------------|------------|------------|------------|------------|
 string repeatNTimes(int repeat,string val){
   string repeated = "";
@@ -157,6 +153,7 @@ std::string removeWhitespace(string data){
   data.erase(std::remove(data.begin(),data.end(),' '),data.end());
   return data;
 }
+
 std::vector<std::string> removeVectorSpace(std::vector<std::string> vectorData){
   vectorData[0] = removeWhitespace(vectorData[0]);
   vectorData[1] = removeWhitespace(vectorData[1]);
