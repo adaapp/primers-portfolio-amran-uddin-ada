@@ -43,6 +43,7 @@ void dataFileParser(void) {
     printf("|%-12s|%-12s|%-12s|\n", parsedObj[0].c_str(),parsedObj[1].c_str(),parsedObj[2].c_str());
   }
   fileObj.close();
+  printf("|%-12s|%-12s|%-12s|\n", "------------","------------","------------");
 }
 
 //------------|------------|------------|------------|------------|-------
