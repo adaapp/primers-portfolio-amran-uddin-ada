@@ -30,20 +30,22 @@ void dataFileParser(void) {
   std::vector<std::string> parsedObj;
   std::ifstream fileObj;
   std::string line;
+  std::string initial;
 
-  printf("\n|%-12s|%-12s|%-12s|\n", "------------","------------","------------");
-	printf("|%-12s|%-12s|%-12s|\n", "Initial","Last","Salary");
-  printf("|%-12s|%-12s|%-12s|\n", "------------","------------","------------");
+  printf("\n|%-7s|%-10s|%-7s|\n", "-------","----------","-------");
+	printf("|%-7s|%-10s|%-7s|\n", "Initial","Last","Salary");
+  printf("|%-7s|%-10s|%-7s|\n", "-------","----------","-------");
 
   fileObj.open("include/employeesalary.csv");
   if(!fileObj.is_open()) throw std::runtime_error("Could not open file");
   while (!fileObj.eof()){
     getline(fileObj, line);
     parsedObj = parseFile(line);
-    printf("|%-12s|%-12s|%-12s|\n", parsedObj[0].c_str(),parsedObj[1].c_str(),parsedObj[2].c_str());
+    initial = parsedObj[0].substr(0, 1) + ".";
+    printf("|%-7s|%-10s|£%-6s|\n", initial.c_str(),parsedObj[1].c_str(),parsedObj[2].c_str());
   }
   fileObj.close();
-  printf("|%-12s|%-12s|%-12s|\n", "------------","------------","------------");
+  printf("|%-7s|%-10s|%-7s|\n", "-------","----------","-------");
 }
 
 //------------|------------|------------|------------|------------|-------
