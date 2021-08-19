@@ -5,6 +5,8 @@ using namespace std;
 bool isNumber(string inp);
 std::vector<string> searchRecords(string file,bool phoneNumber, string search);
 std::vector<string> parseFile (string line);
+string repeatNTimes(int repeat,string val);
+std::vector<std::vector<std::string>> parsed2dObjfunction(string file);
 
 void phoneDirectory(void) {
   string searchInput;
@@ -29,41 +31,28 @@ void phoneDirectory(void) {
 void dataFileParser(void) {
   std::vector<std::string> parsedObj;
   std::vector<std::vector<std::string>> parsed2dObj;
-  std::ifstream fileObj;
-  std::string line;
   std::string initial;
-  int maxLast = 4;
-  int maxSalary = 5;
 
+  parsed2dObj = parsed2dObjfunction("include/employeesalary.csv");
+  int maxLast = stoi(parsed2dObj[parsed2dObj.size() - 1][1]); // last element reserved for max values
+  int maxSalary = stoi(parsed2dObj[parsed2dObj.size() - 1][2]);
 
-  fileObj.open("include/employeesalary.csv");
-  if(!fileObj.is_open()) throw std::runtime_error("Could not open file");
-  while (!fileObj.eof()){
-    getline(fileObj, line);
-    parsedObj = parseFile(line);
-    parsed2dObj.push_back(parsedObj);
-    if (parsedObj[1].length() > maxLast){
-      maxLast = parsedObj[1].length();
-    }
-    if (parsedObj[2].length() > maxSalary){
-      maxSalary = parsedObj[2].length();
-    }
-  }
-  fileObj.close();
-  maxSalary++;
-  maxLast++;
-	printf("|%-7s|%-*s|%-*s |\n", "Initial", maxLast,"Last", maxSalary,"Salary");
-  printf("|%-7s|%-*s|-%-*s|\n", "-------", maxLast,"-----", maxSalary,"----");
-  for(std::vector<std::vector<std::string>>::size_type i = 0; i != parsed2dObj.size(); i++) {
-    /* std::cout << v[i]; ... */
+  string lastDash = repeatNTimes(maxLast,"-");
+  string salaryDash = repeatNTimes(maxSalary + 1,"-"); //make up for the £
+
+  printf("\n|%-7s|%-*s|%-*s|\n", "-------", maxLast,lastDash.c_str(), maxSalary,salaryDash.c_str());
+	printf("|%-7s|%-*s|%-*s|\n", "Initial", maxLast,"Last", maxSalary + 1,"Salary");
+  printf("|%-7s|%-*s|%-*s|\n", "-------", maxLast,lastDash.c_str(), maxSalary,salaryDash.c_str());
+
+  for(std::vector<std::vector<std::string>>::size_type i = 0; i != parsed2dObj.size() - 1; i++) {
     initial = parsed2dObj[i][0].substr(0, 1) + ".";
     printf("|%-7s|%-*s|£%-*s|\n", initial.c_str(), maxLast,parsed2dObj[i][1].c_str(), maxSalary,parsed2dObj[i][2].c_str());
   }
-  //printf("|%-7s|%-10s|£%-6s|\n", initial.c_str(),parsedObj[1].c_str(),parsedObj[2].c_str());
+  printf("|%-7s|%-*s|%-*s|\n", "-------", maxLast,lastDash.c_str(), maxSalary,salaryDash.c_str());
 
 }
 
-//------------|------------|------------|------------|------------|-------
+//------------|------------|------------|------------|------------|
 
 bool isNumber(string searchInput){
   for (std::string::size_type i = 0; i < searchInput.length(); i++){
@@ -122,4 +111,45 @@ std::vector<string> parseFile (string line) {
   return parsedObj;
 }
 
-//------------|------------|------------|------------|------------|-------
+//------------|------------|------------|------------|------------|
+string repeatNTimes(int repeat,string val){
+  string repeated = "";
+  for (int i =0;i < repeat;i++){
+    repeated += val;
+  }
+  return repeated;
+}
+
+std::vector<std::vector<std::string>> parsed2dObjfunction(string file){
+  std::vector<std::string> parsedObj;
+  std::vector<std::vector<std::string>> parsed2dObj;
+  std::ifstream fileObj;
+  std::string line;
+  int initial = 7;
+  int maxLast = 4;
+  int maxSalary = 5;
+
+  fileObj.open(file);
+  if(!fileObj.is_open()) throw std::runtime_error("Could not open file");
+  while (!fileObj.eof()){
+    getline(fileObj, line);
+    parsedObj = parseFile(line);
+    parsed2dObj.push_back(parsedObj);
+    if (parsedObj[1].length() > maxLast){
+      maxLast = parsedObj[1].length();
+    }
+    if (parsedObj[2].length() > maxSalary){
+      maxSalary = parsedObj[2].length();
+    }
+  }
+  fileObj.close();
+  maxSalary++;
+  maxLast++;
+  // send max lengths at the end of records
+  parsedObj[0] = (to_string(initial));
+  parsedObj[1] = (to_string(maxLast));
+  parsedObj[2] = (to_string(maxSalary));
+  parsed2dObj.push_back(parsedObj);
+  return parsed2dObj;
+};
+//------------|------------|------------|------------|------------|
