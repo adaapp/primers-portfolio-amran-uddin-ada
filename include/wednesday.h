@@ -7,6 +7,8 @@ std::vector<string> searchRecords(string file,bool phoneNumber, string search);
 std::vector<string> parseFile (string line);
 string repeatNTimes(int repeat,string val);
 std::vector<std::vector<std::string>> parsed2dObjfunction(string file);
+std::string removeWhitespace(string data);
+std::vector<std::string> removeVectorSpace(std::vector<std::string> vectorData);
 
 void phoneDirectory(void) {
   string searchInput;
@@ -14,8 +16,7 @@ void phoneDirectory(void) {
   getline(cin,searchInput);
 
   std::vector<std::string> parsedObj;
-
-  parsedObj = searchRecords("include/phonedirectory.csv",isNumber(searchInput), searchInput);
+  parsedObj = searchRecords("include/phonedirectory.csv",isNumber(removeWhitespace(searchInput)), searchInput);
   if (parsedObj[0] == "0"){
     printf("\nSearching %s records \n", parsedObj[2].c_str());
     printf("\nFound No Matches for %s\n",searchInput.c_str());
@@ -49,7 +50,6 @@ void dataFileParser(void) {
     printf("|%-7s|%-*s|£%-*s|\n", initial.c_str(), maxLast,parsed2dObj[i][1].c_str(), maxSalary,parsed2dObj[i][2].c_str());
   }
   printf("|%-7s|%-*s|%-*s|\n", "-------", maxLast,lastDash.c_str(), maxSalary,salaryDash.c_str());
-
 }
 
 //------------|------------|------------|------------|------------|
@@ -75,7 +75,7 @@ std::vector<string> searchRecords(string file,bool phoneNumber, string search){
     counter++;   
     if (phoneNumber){
       parsedObj = parseFile(line);
-      if (parsedObj[1] == search){
+      if (parsedObj[1] == removeWhitespace(search)){
         found = true;
       }
     }
@@ -133,7 +133,7 @@ std::vector<std::vector<std::string>> parsed2dObjfunction(string file){
   if(!fileObj.is_open()) throw std::runtime_error("Could not open file");
   while (!fileObj.eof()){
     getline(fileObj, line);
-    parsedObj = parseFile(line);
+    parsedObj = removeVectorSpace(parseFile(line));
     parsed2dObj.push_back(parsedObj);
     if (parsedObj[1].length() > maxLast){
       maxLast = parsedObj[1].length();
@@ -153,3 +153,13 @@ std::vector<std::vector<std::string>> parsed2dObjfunction(string file){
   return parsed2dObj;
 };
 //------------|------------|------------|------------|------------|
+std::string removeWhitespace(string data){
+  data.erase(std::remove(data.begin(),data.end(),' '),data.end());
+  return data;
+}
+std::vector<std::string> removeVectorSpace(std::vector<std::string> vectorData){
+  vectorData[0] = removeWhitespace(vectorData[0]);
+  vectorData[1] = removeWhitespace(vectorData[1]);
+  vectorData[2] = removeWhitespace(vectorData[2]);
+  return vectorData;
+}
