@@ -27,10 +27,25 @@ void phoneDirectory(void) {
 
 
 void dataFileParser(void) {
-	std::cout << " - dataFileParser: not yet implemented\n\n";
+  std::vector<std::string> parsedObj;
+  std::ifstream fileObj;
+  std::string line;
+
+  printf("\n|%-12s|%-12s|%-12s|\n", "------------","------------","------------");
+	printf("|%-12s|%-12s|%-12s|\n", "Initial","Last","Salary");
+  printf("|%-12s|%-12s|%-12s|\n", "------------","------------","------------");
+
+  fileObj.open("include/employeesalary.csv");
+  if(!fileObj.is_open()) throw std::runtime_error("Could not open file");
+  while (!fileObj.eof()){
+    getline(fileObj, line);
+    parsedObj = parseFile(line);
+    printf("|%-12s|%-12s|%-12s|\n", parsedObj[0].c_str(),parsedObj[1].c_str(),parsedObj[2].c_str());
+  }
+  fileObj.close();
 }
 
-//-------------------------------------------------------------------
+//------------|------------|------------|------------|------------|-------
 
 bool isNumber(string searchInput){
   for (std::string::size_type i = 0; i < searchInput.length(); i++){
@@ -74,7 +89,7 @@ std::vector<string> searchRecords(string file,bool phoneNumber, string search){
   parsedObj.push_back(to_string(counter));
   return parsedObj;
 }
-
+// Switched to vectors so parsefile works well with p6 as well
 std::vector<string> parseFile (string line) {
   int mid = line.find(',');
   std::vector<std::string> parsedObj;
@@ -89,4 +104,4 @@ std::vector<string> parseFile (string line) {
   return parsedObj;
 }
 
-//-------------------------------------------------------------------
+//------------|------------|------------|------------|------------|-------
