@@ -3,15 +3,15 @@
 using namespace std;
 
 bool isNumber(string inp);
-string* searchRecords(string file,bool phoneNumber, string search);
-string* parseFile (string line);
+std::vector<string> searchRecords(string file,bool phoneNumber, string search);
+std::vector<string> parseFile (string line);
 
 void phoneDirectory(void) {
   string searchInput;
   cout << "\nPlease enter a name or number to search: ";
   getline(cin,searchInput);
 
-  std::string *parsedObj = new string[3];
+  std::vector<std::string> parsedObj;
 
   parsedObj = searchRecords("include/phonedirectory.csv",isNumber(searchInput), searchInput);
   if (parsedObj[0] == "0"){
@@ -39,26 +39,25 @@ bool isNumber(string searchInput){
   return true;
 }
 
-string* searchRecords(string file,bool phoneNumber, string search){
+std::vector<string> searchRecords(string file,bool phoneNumber, string search){
   string line;
   int counter = 0;
   bool found = false;
-  std::string *parsedObj = new string[2];
-  std::string *returnObj = new string[3];
+  std::vector<std::string> parsedObj;
   std::ifstream fileObj;
   
   fileObj.open(file);
   if(!fileObj.is_open()) throw std::runtime_error("Could not open file");
-  while (!fileObj.eof()){
+  while (!fileObj.eof() && !found){
     getline(fileObj, line);
     counter++;   
-    if (phoneNumber && !found){
+    if (phoneNumber){
       parsedObj = parseFile(line);
       if (parsedObj[1] == search){
         found = true;
       }
     }
-    else if (!found){
+    else {
       parsedObj = parseFile(line);
       if (parsedObj[0] == search){
         found = true;
@@ -68,23 +67,25 @@ string* searchRecords(string file,bool phoneNumber, string search){
 
   fileObj.close();
   if (!found) { 
-    returnObj[0] = "0";
-    returnObj[1] = "0";
+    parsedObj[0] = "0";
+    parsedObj[1] = "0";
 
   }
-  else {
-    returnObj[0] = parsedObj[0];
-    returnObj[1] = parsedObj[1];
-  }
-  returnObj[2] = to_string(counter);
-  return returnObj;
+  parsedObj.push_back(to_string(counter));
+  return parsedObj;
 }
 
-string* parseFile (string line) {
+std::vector<string> parseFile (string line) {
   int mid = line.find(',');
-  std::string *parsedObj = new string[2];
-  parsedObj[0] = line.substr(0, mid);
-  parsedObj[1] = line.substr(mid + 1, line.length());
+  std::vector<std::string> parsedObj;
+  int start = 0;
+  for (std::string::size_type i = 0; i < line.length(); i++){
+    if (line[i] == ','){
+      parsedObj.push_back(line.substr(start, i - start)); // star to length
+      start = i + 1;
+    }
+  }
+  parsedObj.push_back(line.substr(start, line.length()));
   return parsedObj;
 }
 
