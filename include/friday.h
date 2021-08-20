@@ -47,20 +47,28 @@ class car {     // The class
 };
 
 
-class area {
+class AreaOf {
+  float width;
+  float height;
+  float top;
   public:
-    area(){}
-    void size8(void);
+    AreaOf(){
+      
+    };
+    ~AreaOf(){
+      printf("\nFinished");
+    }
+    float size(float width) {
+      return width * width;
+    }
+    float size(float width, float height) {
+      return width * height;
+    }
+    float size(float width, float height,float top){
+      return 0.5 * (width + top) * height;
+    }
 };
-class circle: public areaI1 {
-  public:
-  circle(){
 
-  }
-  void size8(void) {
-  cout << "Hello World!";
-  }
-};
 
 void carClass(void) {
     bool loop = true;
@@ -97,6 +105,11 @@ void carClass(void) {
 
 void areaOf(void) {
 		std::cout << " - areaOf: not yet implemented\n\n";
-    //square squ();
-    //cout << squ.size();
+    AreaOf square;
+    AreaOf rectangle;
+    AreaOf trapezium;
+    printf("\nArea of square(5): %g",square.size(5));
+    printf("\nArea of rectangle(5): %g",square.size(5,10));
+    printf("\nArea of trapezium(5): %g",square.size(14,8,6));
+
 }
