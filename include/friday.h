@@ -53,7 +53,6 @@ class AreaOf {
   float top;
   public:
     AreaOf(){
-      
     };
     ~AreaOf(){
       printf("\nFinished");
@@ -104,6 +103,7 @@ void carClass(void) {
 
 
 void areaOf(void) {
+  
 		std::cout << " - areaOf: not yet implemented\n\n";
     AreaOf square;
     AreaOf rectangle;
@@ -111,5 +111,6 @@ void areaOf(void) {
     printf("\nArea of square(5): %g",square.size(5));
     printf("\nArea of rectangle(5): %g",square.size(5,10));
     printf("\nArea of trapezium(5): %g",square.size(14,8,6));
+    
 
 }

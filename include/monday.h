@@ -20,18 +20,18 @@ void fahrenheitCentigradeConversion(void) {
   std::string Text = "";
 
   
-  std::cout << "Please enter the starting temperature: ";
+  printf("\nPlease enter the starting temperature: ");
   std::cin >> temp;
 
   while (cin.fail()) { // occurs when cin fails maybe due to incorrect type
     std::cin.clear(); // clear fail flag
     cin.ignore(numeric_limits<streamsize>::max(),'\n'); // escape to new line we do not get error from non-number 
-    std::cout << "Not a number please enter a number: ";
+    printf("\nNot a number please enter a number: ");
     std::cin >> temp;
   }
 
-  std::cout << "Press C to convert Fahrenheit to Celsius" << std::endl;
-  std::cout << "Press F to convert Celsius to Fahrenheit" << std::endl;
+  printf("\nPress C to convert Fahrenheit to Celsius ");
+  printf("\nPress F to convert Celsius to Fahrenheit ");
   std::cin >> conv;
 
   switch (conv) {
@@ -39,20 +39,20 @@ void fahrenheitCentigradeConversion(void) {
 	  case 'c':
         result = fahrToCel(temp);
         resultKelvin = celToKel(result);
-        printf("Your Choice: %c \n",conv);
-        printf("%g fahrenheit is %g degrees  which is the same as %g Kelvin \n", temp, result,resultKelvin);
+        printf("\nYour Choice: %c",conv);
+        printf("\n%g fahrenheit is %g degrees  which is the same as %g Kelvin", temp, result,resultKelvin);
         break;
     case 'F':
 	  case 'f':
         result = celToFahr(temp);
         resultKelvin = celToKel(temp);
-        printf("Your Choice: %c \n",conv);
-        printf("%g degrees is %g fahrenheit which is the same as %g Kelvin\n", temp, result,resultKelvin);
+        printf("\nYour Choice: %c",conv);
+        printf("\n%g degrees is %g fahrenheit which is the same as %g Kelvin", temp, result,resultKelvin);
         break;
     
     
     default:
-      printf("Temperature is Not A Char Please Enter C or F\n");
+      printf("\nTemperature is Not A Char Please Enter C or F");
       break;
   }
   

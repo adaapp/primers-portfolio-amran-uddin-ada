@@ -10,7 +10,7 @@ int t2Duration = 10;
 void sleepTimer(void) {
   cout << "sleepTimer: Calling sleep function with thread Id: " <<std::this_thread::get_id() <<"\n";
   sleepDuration(10);
-  cout <<  "sleepTimer: Sleep Timer Finished";
+  printf("sleepTimer: Sleep Timer Finished");
 }
 
 

@@ -8,7 +8,7 @@ void printEmployees(string employees[],int sizeArray);
 void passwordComplexityChecker(void) {
 	std::string inputPassword;
   int complexity = 0;
-  cout << "Enter Password: ";
+  printf("\nEnter Password: ");
   getline(cin,inputPassword); // get line allows for spaces opposed to just cin
   complexity = complexityChecker(inputPassword);
 
@@ -33,9 +33,9 @@ void employeeListRemoval(void) {
   string employees[5] = {"John Smith","Jaelynn Smith","Kaley Barajas","Walter Collier","Cale Myers"};
   int sizeArray = sizeof(employees)/sizeof(employees[0]);
 
-  std::cout << "\nList of Employees";
+  printf("\nList of Employees");
   printEmployees(employees,sizeArray);
-  std::cout << "\nDelete Choice: ";
+  printf("\nDelete Choice: ");
   getline(cin,deleteChoice);
 
   
@@ -47,12 +47,12 @@ void employeeListRemoval(void) {
       }
 
       employees[sizeArray -1] = ""; // last two values would be duplicated - make empty
-      cout << "\n" << "--New List of Employees--";
+      printf("\n--New List of Employees--");
       printEmployees(employees,sizeArray);
       return;
     }
   }
-  cout << "\n" << "No one in the list named " << deleteChoice;
+  printf("\nNo one in the list named %s",deleteChoice.c_str());
   printEmployees(employees,sizeArray);
   return;
   
@@ -101,7 +101,7 @@ int complexityReturner(int passSize, int alpha, int numeric, int special) {
 void printEmployees(string employees[],int sizeArray){
   for (int i = 0; i < sizeArray; i++){
     if (employees[i] == "") { return; }
-    cout << "\n" << employees[i];
+    printf("\n%s",employees[i].c_str());
   }
 }
 

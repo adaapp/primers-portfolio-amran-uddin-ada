@@ -12,7 +12,7 @@ std::vector<std::string> removeVectorSpace(std::vector<std::string> vectorData);
 
 void phoneDirectory(void) {
   string searchInput;
-  cout << "\nPlease enter a name or number to search: ";
+  printf("\nPlease enter a name or number to search: ");
   getline(cin,searchInput);
 
   std::vector<std::string> parsedObj;
