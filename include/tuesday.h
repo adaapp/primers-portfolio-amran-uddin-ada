@@ -29,8 +29,9 @@ void passwordComplexityChecker(void) {
 }
 
 void employeeListRemoval(void) {
+  bool foundFlag = false;
   string deleteChoice = "";
-  string employees[5] = {"John Smith","Jaelynn Smith","Kaley Barajas","Walter Collier","Cale Myers"};
+  string employees[6] = {"John Smith","Jaelynn Smith","Kaley Barajas","Walter Collier","Kaley Barajas","Cale Myers"};
   int sizeArray = sizeof(employees)/sizeof(employees[0]);
 
   printf("\nList of Employees");
@@ -47,10 +48,13 @@ void employeeListRemoval(void) {
       }
 
       employees[sizeArray -1] = ""; // last two values would be duplicated - make empty
-      printf("\n--New List of Employees--");
-      printEmployees(employees,sizeArray);
-      return;
+      foundFlag = true;
     }
+  }
+  if ( foundFlag ){ 
+    printf("\n--New List of Employees--");
+    printEmployees(employees,sizeArray);
+    return; 
   }
   printf("\nNo one in the list named %s",deleteChoice.c_str());
   printEmployees(employees,sizeArray);
