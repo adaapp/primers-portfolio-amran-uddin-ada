@@ -17,6 +17,7 @@ void fahrenheitCentigradeConversion(void) {
   float result = 0;
   float resultKelvin = 0;
   char conv;
+  bool conversion = true;
   std::string Text = "";
 
   
@@ -32,29 +33,33 @@ void fahrenheitCentigradeConversion(void) {
 
   printf("\nPress C to convert Fahrenheit to Celsius ");
   printf("\nPress F to convert Celsius to Fahrenheit ");
-  std::cin >> conv;
-
-  switch (conv) {
-    case 'C':
-	  case 'c':
-        result = fahrToCel(temp);
-        resultKelvin = celToKel(result);
-        printf("\nYour Choice: %c",conv);
-        printf("\n%g fahrenheit is %g degrees  which is the same as %g Kelvin", temp, result,resultKelvin);
+  
+  do {
+    std::cin >> conv;
+    switch (conv) {
+      case 'C':
+      case 'c':
+          result = fahrToCel(temp);
+          resultKelvin = celToKel(result);
+          printf("\nYour Choice: %c",conv);
+          printf("\n%g fahrenheit is %g degrees  which is the same as %g Kelvin", temp, result,resultKelvin);
+          conversion = false;
+          break;
+      case 'F':
+      case 'f':
+          result = celToFahr(temp);
+          resultKelvin = celToKel(temp);
+          printf("\nYour Choice: %c",conv);
+          printf("\n%g degrees is %g fahrenheit which is the same as %g Kelvin", temp, result,resultKelvin);
+          conversion = false;
+          break;
+      
+      
+      default:
+        printf("\nTemperature is Not A Char Please Enter C or F ");
         break;
-    case 'F':
-	  case 'f':
-        result = celToFahr(temp);
-        resultKelvin = celToKel(temp);
-        printf("\nYour Choice: %c",conv);
-        printf("\n%g degrees is %g fahrenheit which is the same as %g Kelvin", temp, result,resultKelvin);
-        break;
-    
-    
-    default:
-      printf("\nTemperature is Not A Char Please Enter C or F");
-      break;
-  }
+    }
+  } while (conversion);
   
 }
 
