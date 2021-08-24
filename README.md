@@ -100,6 +100,22 @@ This function operated by calling another function which halted the current thre
 
 In this task the main thread is started in the function, and we then call two functions each with a different thread in the main function. As we did a join in the main function, it could not end until the two new threaded functions ended and returned. After the two functions were finished we printed a statement saying the main thread has also ended.
 
+#### Primer 9 Car Class
+
+The task was to create a car class which the user could operate on.
+
+The tasks I completed to make the program work:	
+  *  Make variables, made make and colour string, engine and locked as Boolean (All Private Variables)
+  *  Create constructor
+  *  Make setters, getters for colour and make
+  *  Make function to change state of engine and locked status that also printed out a message depending if it was already locked or turned on
+
+A way to improve some functionality of the methods would be to turn the engine and locked methods pure. The check to see if you are already turning a car that is already turned on or locking a car that is already locked can be done in another. The main function could the get the output and print the results. I didn’t think turning the functions purer would be worth the added complexity in making and implementing the added methods as in the current iteration each time we change state we expect the outcome to be printed anyway so having it in the method simplifies things.
+
+#### Primer 10 Area Of
+
+The way this function worked is by having a class with three methods. The method names would be the same except the arguments. With this we could have three functions with the same name but doing different things. In the first method I calculated the area of a rectangle. In the second I calculated the area of a triangle. In the third I calculated the area of a trapezium/trapezoid.
+
   
 ..  
 

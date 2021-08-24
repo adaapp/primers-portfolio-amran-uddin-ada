@@ -55,7 +55,6 @@ class AreaOf {
     AreaOf(){
     };
     ~AreaOf(){
-      printf("\nFinished");
     }
     float size(float width) {
       return width * width;
