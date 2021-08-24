@@ -116,13 +116,39 @@ A way to improve some functionality of the methods would be to turn the engine a
 
 The way this function worked is by having a class with three methods. The method names would be the same except the arguments. With this we could have three functions with the same name but doing different things. In the first method I calculated the area of a rectangle. In the second I calculated the area of a triangle. In the third I calculated the area of a trapezium/trapezoid.
 
-  
-..  
-
 ---
 ## Section 2 - Programming Paradigms
+## Section 2 - Programming Paradigms
 ### Programming Paradigms
-Simply put, a programming paradigm, for example, procedural, object-oriented, functional, structured, declarative, imperative and event driven can be described as a specific approach used when trying to solve a problem.  Although many programming languages can (and do) support multiple paradigms this discussion will focus more specifically on the possible benefits with examples of the potential differences and similarities of five from the above list. These are ...
+
+Simply put, a programming paradigm, for example, procedural, object-oriented, functional, structured, declarative, imperative and event driven can be described as a specific approach used when trying to solve a problem.  Although many programming languages can (and do) support multiple paradigms this discussion will focus more specifically on the possible benefits with examples of the potential differences and similarities of five from the above list.
+
+#### Imperative Programming
+
+Is when the code is explicit and the instructions are stated clearly. This gives us better understanding and more control on how and what the program does.
+
+#### Declarative Programming
+
+Declarative code asks more on what you want than how you would get it. This leaves more control on the system and less on you. Unlike imperative programming it also means you can only use tools provided to you.
+
+An example of declarative programming is sql. For sql you can only use the tools provided for example, where and orderby operators. You cannot alter how sql would do these tasks only use them. This however brings an advantage to a user as it reduces the complexity of working with the system and gives powerful tools to access the database that does not require a lot of initial set up and learning that may otherwise be needed for imperative programming.
+
+#### Event Driven Programming
+
+Event driven use imperative code with one or more functions that manage the code. The code or program respond to events such as mouse clicks with listeners and handlers. In modern systems such that have a graphical user interface this is very important. For example, pressing a button which fires an event to make a character in a game jump.
+
+#### Object Oriented Programming
+
+Object oriented programming is where data and code are objects. Objects can have attributes and functions which are called methods. It is useful in representing real world constructs, with them having properties and methods that can do tasks. For example, a person has a height being a property and can walk which would be a method. OOP programming has features such as encapsulation, inheritance and polymorphism which allows for more flexible code that can be reused and is modular in nature making it more maintainable. This can be especially useful in large scale projects.
+
+#### Functional Programming
+
+Functional programming is coding using functions. Some main focuses are pure functions and reusable code. Reusable code is important especially for large projects, where codebases can go past thousands of lines of code. Making code reusable means less testing, and more maintainability due to less lines of code. As for pure functions, it is when a function meets two requirements. One being having the same input you would receive the same response. Another point is they have no side effects e.g. printing out a statement. An advantage or feature or pure functions is they can be replace by their value. E.g. Max(10,13,2) will returns 13 so in this case it can be replaced by 13.
+
+#### Programming Languages
+
+Many programming languages will often combine and use multiple programming paradigms. This allows the programmer to code in a way they would like and give them more freedom. For example in c++ you can code in an imperative, oop or functional way. You could also 
+mix some of the paradigms giving even further choices and flexibility.
 
 ---
 ## Section 3 - Continued Professional Development
