@@ -33,7 +33,8 @@ void fahrenheitCentigradeConversion(void) {
 
   printf("\nPress C to convert Fahrenheit to Celsius ");
   printf("\nPress F to convert Celsius to Fahrenheit ");
-  
+  printf("\nPress K to convert Celsius to Kelvin ");
+  printf("\nPress I to convert Fahrenheit to Kelvin ");  
   do {
     std::cin >> conv;
     switch (conv) {
@@ -42,7 +43,7 @@ void fahrenheitCentigradeConversion(void) {
           result = fahrToCel(temp);
           resultKelvin = celToKel(result);
           printf("\nYour Choice: %c",conv);
-          printf("\n%g fahrenheit is %g degrees  which is the same as %g Kelvin", temp, result,resultKelvin);
+          printf("\n%g degrees fahrenheit is %g degrees ceslius", temp, result);
           conversion = false;
           break;
       case 'F':
@@ -50,7 +51,21 @@ void fahrenheitCentigradeConversion(void) {
           result = celToFahr(temp);
           resultKelvin = celToKel(temp);
           printf("\nYour Choice: %c",conv);
-          printf("\n%g degrees is %g fahrenheit which is the same as %g Kelvin", temp, result,resultKelvin);
+          printf("\n%g degrees celsius is %g degrees fahrenheit", temp, result);
+          conversion = false;
+          break;
+      case 'K':
+      case 'k':
+          result = celToKel(temp);
+          printf("\nYour Choice: %c",conv);
+          printf("\n%g degrees celsius is %g Kelvin", temp, result);
+          conversion = false;
+          break;
+      case 'I':
+      case 'i':
+          result = celToKel(fahrToCel(temp));
+          printf("\nYour Choice: %c",conv);
+          printf("\n%g degrees fahrenheit is %g Kelvin", temp, result);
           conversion = false;
           break;
       
