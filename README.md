@@ -118,7 +118,6 @@ The way this function worked is by having a class with three methods. The method
 
 ---
 ## Section 2 - Programming Paradigms
-## Section 2 - Programming Paradigms
 ### Programming Paradigms
 
 Simply put, a programming paradigm, for example, procedural, object-oriented, functional, structured, declarative, imperative and event driven can be described as a specific approach used when trying to solve a problem.  Although many programming languages can (and do) support multiple paradigms this discussion will focus more specifically on the possible benefits with examples of the potential differences and similarities of five from the above list.
@@ -154,7 +153,9 @@ mix some of the paradigms giving even further choices and flexibility.
 ## Section 3 - Continued Professional Development
 ### Benefits of becoming a Polyglot Programmer
 
-A polygot programmer is one who can write code in multiple languages.
+A polyglot programmer is one who can write code in multiple languages.
 This usually means they have a deeper understanding of code than just a specific language and its syntax.
 In a modern world this is very useful, not only can it help you get jobs by giving you a more variety of working options it also has other benefits. It allows a programmer to look at a problem and choose which tool would be the best for the job rather than which language they prefer. It also is very advantageous when working on certain sdk's that are only available on certain language.
-For example google's firebase support C++, Java, JavaScript, JavaScript/Node.js, Objective-C, and Swift. Amazon's Lambda service is a powerful tool which I have used personally and at work however it only supports Java, Go, PowerShell, Node. js, C#, Python, and Ruby. This would force the programmer to use one of these languages and learn them if they have not already. There are various tools to create infrastructure with code with one new one being amazon's cdk. This allows you to create resources with code, but it is limited to the following languages: TypeScript, JavaScript, Python, Java, C#/.Net. This shows being limited to one or a few languages can prohibit you from doing interesting and creative projects. Also it is very common for codebases to have multiple languages in them. One common combination is sql alongside a more imperative and functional language such as C++ or PHP.
+For example, Google’s firebase support C++, Java, JavaScript, JavaScript/Node.js, Objective-C, and Swift. Amazon's Lambda service is a powerful tool which I have used personally and at work however it only supports Java, Go, PowerShell, Node. js, C#, Python, and Ruby. This would force the programmer to use one of these languages and learn them if they have not already. There are various tools to create infrastructure with code with one new one being amazon's cdk. This allows you to create resources with code, but it is limited to the following languages: TypeScript, JavaScript, Python, Java, C#/.Net. This shows being limited to one or a few languages can prohibit you from doing interesting and creative projects. Also it is very common for codebases to have multiple languages in them. One common combination is sql alongside a more imperative and functional language such as C++ or PHP.
+
+In conclusion being a versatile programmer not only allows for more creative projects such as C++ for making games and java for making android applications it allows for more career opportunities.
