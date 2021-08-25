@@ -23,8 +23,8 @@ void joinDetachThreads(void) {
   cout << "Main Thread: " <<std::this_thread::get_id() <<" started\n";
   std::thread thread1(&timer1);
   std::thread thread2(&timer2);
-  thread1.join();
-  thread2.join();
+  thread1.join(); // makes main thread wait for this to finish first
+  thread2.join(); // before main thread can continue
   cout << "Main Thread: " <<std::this_thread::get_id() <<" ended\n";
 }
 

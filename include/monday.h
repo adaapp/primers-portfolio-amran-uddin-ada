@@ -99,7 +99,7 @@ void selfServiceCheckout(void) {
     total += quantity * item;
     i++;
   }
-
+  // .2f = 2dp
   printf("\n Subtotal %.2f", total);
   printf("\n Tax %.2f \n", total * (tax / 100));
   printf("\n Total %.2f\n", total * ((tax/100) + 1));
